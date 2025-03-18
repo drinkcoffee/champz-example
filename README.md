@@ -10,12 +10,12 @@ $ forge build
 
 ### Deploy
 
-Not that deploy.sh needs small modifications to switch between mainnet and testnet. It also has instructions if deploying using a Ledger hardware wallet.
+Not that `script/deploy.sh` needs small modifications to switch between mainnet and testnet. It also has instructions if deploying using a Ledger hardware wallet.
 
 ```shell
 $ export PKEY=<your key>
 $ export APIKEY=<your blockscout test net or mainnet API key>
-$ sh deploy.sh
+$ sh script/deploy.sh
 ```
 
 

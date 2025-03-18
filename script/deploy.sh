@@ -31,6 +31,6 @@ forge script --rpc-url $RPC \
     --verify \
     --verifier blockscout \
     --verifier-url $BLOCKSCOUT$APIKEY \
-    --resume \
     script/ChampzERC1155Soulbound.s.sol:ChampzERC1155SoulboundScript
+
 
