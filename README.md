@@ -1,5 +1,22 @@
 ## Champz Example Deploy Script
 
+# Sequence
+
+* Deploy contract. Note you will need to set-up environment variables.
+```
+sh script/deploy.sh
+```
+* Grant Minting API minter role. 
+```
+sh script/grantMinterRole.sh
+```
+* Link the contract on Hub.
+* If you haven't already, generate an Immutable API key for the project. For Immutable Hub and the minting API, this is project specific.
+
+
+
+
+
 ## Usage
 
 ### Build

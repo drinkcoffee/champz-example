@@ -1,15 +1,15 @@
 #!/bin/bash
-
+# Grant the minter role to the Minter API
 useMainNet=0
 
 if [ useMainNet -eq 1 ]
 then
-    echo Immutable zkEVM Mainnet Configuration
+    echo *** Immutable zkEVM Mainnet Configuration ***
     RPC=https://rpc.immutable.com
     BLOCKSCOUT=https://explorer.immutable.com/api?
     USEMAINNET=true
 else
-    echo Immutable zkEVM Testnet Configuration
+    echo *** Immutable zkEVM Testnet Configuration ***
     RPC=https://rpc.testnet.immutable.com
     BLOCKSCOUT=https://explorer.testnet.immutable.com/api?
     USEMAINNET=false
@@ -20,6 +20,7 @@ echo RPC URL: $RPC
 echo Blockscout API Key: $APIKEY
 echo Blockscout URI: $BLOCKSCOUT$APIKEY
 echo Use Mainnet: $USEMAINNET
+echo ERC1155: $NFTCONTRACT
 
 if [ -z "${PKEY}" ]; then
     echo "Error: PKEY environment variable is not set"
@@ -27,6 +28,10 @@ if [ -z "${PKEY}" ]; then
 fi
 if [ -z "${APIKEY}" ]; then
     echo "Error: APIKEY environment variable is not set"
+    exit 1
+fi
+if [ -z "${NFTCONTRACT}" ]; then
+    echo "Error: NFTCONTRACT environment variable is not set"
     exit 1
 fi
 
@@ -51,8 +56,7 @@ forge script --rpc-url $RPC \
     --verify \
     --verifier blockscout \
     --verifier-url $BLOCKSCOUT$APIKEY \
-    --sig "deploy(bool _useMainnet)" \
+    --sig "grantMinterRole(bool _mainnet, address _proxy)" \
     script/ChampzERC1155Soulbound.s.sol:ChampzERC1155SoulboundScript \
-    $USEMAINNET
-
+    $USEMAINNET $NFTCONTRACT
 
