@@ -12,7 +12,10 @@ sh script/grantMinterRole.sh
 ```
 * Link the contract on Hub.
 * If you haven't already, generate an Immutable API key for the project. For Immutable Hub and the minting API, this is project specific.
-
+* Mint some NFTs. 
+```
+sh script/mintNFTs.sh
+```
 
 
 
