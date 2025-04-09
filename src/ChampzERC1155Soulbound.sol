@@ -30,14 +30,4 @@ contract ChampzERC1155Soulbound is ImmutableERC1155 {
         }
         super._beforeTokenTransfer(operator, from, to, ids, amounts, data);
     }
-
-    /**
-     * Work around an issue with ImmutableERC1155.sol, where the token URI is not returned correctly.
-     * The standard indicates that https://collection.com/game/{id}.json will return NFT 100 which is at:
-     * https://collection.com/game/0000000000000000000000000000000000000000000000000000000000000064.json
-     */
-    function uri(uint256) public view virtual override returns (string memory) {
-        string memory baseURI = baseURI();
-        return bytes(baseURI).length > 0 ? string(abi.encodePacked(baseURI, "{id}.json")) : "";
-    }
 }

@@ -20,7 +20,7 @@ contract ChampzERC1155SoulboundScript is Script {
     function setUp() public {}
 
     function deploy(bool _deployToMainnet) public {
-        string memory baseURI = "https://drinkcoffee.github.io/projects/erc1155nfts/";
+        string memory baseURI = "https://drinkcoffee.github.io/projects/erc1155nfts/{id}.json";
         string memory contractURI = "https://drinkcoffee.github.io/projects/erc1155nfts/sample-collection.json";
         string memory name = "ERC1155 Soulbound Sample Collection";
         string memory symbol = "SB8";
