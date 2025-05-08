@@ -43,6 +43,7 @@ fi
 #     --resume \
 
 forge script --rpc-url $RPC \
+    --optimize \
     --private-key $PKEY \
     --priority-gas-price 10000000000 \
     --with-gas-price     10000000100 \
